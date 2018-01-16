@@ -21,16 +21,16 @@ I gonna part this script in four parts, described in order of actuation:
 
 - *File reader:*
 
-Will look for every "dev-dependencies.txt" and "dependencies.txt" files, storage each file into an array
+Will look for every "dev-dependencies.txt" and "dependencies.txt" files, storage each file into an array.
 
 - *Repo reader:*
 
-Will look for every dependency storaged in the file reader array described before, and storage the version in other array
+Will look for every dependency storaged in the file reader array described before, and storage the version in other array.
 
 - *Version matcher:*
 
-Will compare the File reader array and the Repo reader array, and generate an object
+Will compare the File reader array and the Repo reader array, and generate an object.
 
 - *Render:*
 
-Will use the Version matcher object to show the results in different ways (most basic first iteration)
+Will use the Version matcher object to show the results in different ways (most basic first iteration).
