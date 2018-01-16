@@ -1,6 +1,6 @@
 # Version Matcher
 
-Tells you wich packages are outdated in your python project
+Tells you wich packages are outdated in your python project.
 
 ## Mental Roadmap
 
