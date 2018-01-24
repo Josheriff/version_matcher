@@ -1,0 +1,283 @@
+{
+    "info": {
+        "_pypi_hidden": false,
+        "_pypi_ordering": 14,
+        "author": "N\u00e9stor Salceda",
+        "author_email": "nestor.salceda@gmail.com",
+        "bugtrack_url": null,
+        "cheesecake_code_kwalitee_id": null,
+        "cheesecake_documentation_id": null,
+        "cheesecake_installability_id": null,
+        "classifiers": [
+            "Development Status :: 4 - Beta",
+            "Environment :: Console",
+            "Intended Audience :: Developers",
+            "License :: OSI Approved :: MIT License",
+            "Operating System :: OS Independent",
+            "Topic :: Software Development :: Quality Assurance",
+            "Topic :: Software Development :: Testing"
+        ],
+        "description": "# mamba: the definitive test runner for Python\n\n[![Build Status](https://travis-ci.org/nestorsalceda/mamba.svg)](https://travis-ci.org/nestorsalceda/mamba)\n[![Latest PyPI Version](https://img.shields.io/pypi/v/mamba.svg)](https://pypi.python.org/pypi/mamba)\n\n\n**mamba** is the definitive test runner for Python. Born under the banner of [behavior-driven development](https://en.wikipedia.org/wiki/Behavior-driven_development).\n\n## Installation\n\nTo install **mamba**, just run:\n\n```sh\n$ pip install mamba\n```\n\n\n## Usage\n\n```sh\n$ mamba --help\n```\n\nYou can also read the [Overview](#overview) and take a look at the [spec](./spec).\n\n\n## Overview\n\n```python\n# Importing mamba is not needed!\n# import mamba\n\nwith description('mamba'):\n    with it('is tested with mamba itself'):\n        pass\n\n    with it('supports Python 3'):\n        pass\n\n    with context('features'):\n        with context('defining example groups'):\n            with context('with arbitrary levels of nesting'):\n                with it('is supported'):\n                    pass\n\n        with context('hooks'):\n            with before.all:\n                print('This code will be run once, before all examples in this group')\n\n            with before.each:\n                print('This code will be run once before each example in this group')\n\n            with after.each:\n                print('This code will be run once after each example in this group')\n\n            with after.all:\n                print('This code will be run once, after all examples in this group')\n\n        with context('pending tests'):\n            with _context('when running pending contexts (marked with an underscore)'):\n                with it('will not run any spec under a pending context'):\n                    pass\n\n            with _it('will not run pending specs (marked with an underscore)'):\n                pass\n\n        with it('highlights slow tests'):\n            time.sleep(10)\n\n        with context('when using your code from the tests'):\n            with it('supports importing installed modules'):\n                pass\n\n            with it('supports importing local, non-installed modules'):\n                pass\n\n        with context('code coverage measurement'):\n            with it('is performed if you pass `--enable-coverage`'):\n                pass\n\n            with it('is performed using `coverage`'):\n                # see https://pypi.python.org/pypi/coverage/\n                pass\n\n            with it('is configured in a `.coveragerc` file at the root of your project'):\n                # see https://coverage.readthedocs.io/en/latest/config.html\n                pass\n\n\n    with context('when writing assertions'):\n        with it('does not include an assertion mechanism'):\n            pass\n\n        with it('works with virtually any assertion mechanism'):\n            pass\n\n        with it('can be used with expects'):\n            expect(True).to(be_true)\n\n        with it('can be used with hamcrest'):\n            assert_that(True, is_(True))\n\n        with it('can be used with should_dsl'):\n            True |should| be(True)\n\n        with it('can be used with sure'):\n            True.should.be.true\n\n        with it('can be used with plain assertions'):\n            assert True\n\n    with context('when using test doubles'):\n        with it('does not include a test doubles library'):\n            pass\n\n        with it('works with virtually any test doubles library'):\n            pass\n\n        with it('can be used with mockito'):\n            stub = mock()\n            when(stub).is_usable_with_mockito().thenReturn(True)\n\n            expect(stub.is_usable_with_mockito()).to(be_true)\n\n        with it('can be used with doublex'):\n            with Spy() as sender:\n                sender.is_usable_with_doublex().returns(True)\n\n            assert_that(sender.is_usable_with_doublex(), is_(True))\n            assert_that(sender.is_usable_with_doublex, called())\n\n        with it('can be used with mock'):\n            is_usable_with_mock = Mock(return_value=True)\n\n            assert is_usable_with_mock()\n```\n\n\n## Contributing\n\nIf you'd like to contribute, fork this [repository](http://github.com/nestorsalceda/mamba) and send a pull request.\n",
+        "docs_url": null,
+        "download_url": "",
+        "downloads": {
+            "last_day": 0,
+            "last_month": 0,
+            "last_week": 0
+        },
+        "home_page": "http://nestorsalceda.github.io/mamba",
+        "keywords": "",
+        "license": "MIT/X11",
+        "maintainer": "",
+        "maintainer_email": "",
+        "name": "mamba",
+        "package_url": "http://pypi.python.org/pypi/mamba",
+        "platform": "",
+        "release_url": "http://pypi.python.org/pypi/mamba/0.9.2",
+        "requires_python": "",
+        "summary": "The definitive testing tool for Python. Born under the banner of Behavior Driven Development.",
+        "version": "0.9.2"
+    },
+    "releases": {
+        "0.1": [
+            {
+                "comment_text": "",
+                "downloads": 2207,
+                "filename": "mamba-0.1.tar.gz",
+                "has_sig": false,
+                "md5_digest": "6ba7bd67027cac9ca3e987ab09f85019",
+                "packagetype": "sdist",
+                "path": "5b/9f/0907c3dac5afe5b3cd1921df0e89af1ab4c01eeb16341dc118377cb45419/mamba-0.1.tar.gz",
+                "python_version": "source",
+                "size": 4248,
+                "upload_time": "2013-04-23T09:52:20",
+                "url": "https://pypi.python.org/packages/5b/9f/0907c3dac5afe5b3cd1921df0e89af1ab4c01eeb16341dc118377cb45419/mamba-0.1.tar.gz"
+            }
+        ],
+        "0.2": [
+            {
+                "comment_text": "",
+                "downloads": 2130,
+                "filename": "mamba-0.2.tar.gz",
+                "has_sig": false,
+                "md5_digest": "f9ebe826075b97c7f45fa182414045f6",
+                "packagetype": "sdist",
+                "path": "c3/ad/517130b62a3ad72e6ef82af215e42a33737420a17e9fff0ffbdb16c6af4c/mamba-0.2.tar.gz",
+                "python_version": "source",
+                "size": 4901,
+                "upload_time": "2013-04-27T08:58:28",
+                "url": "https://pypi.python.org/packages/c3/ad/517130b62a3ad72e6ef82af215e42a33737420a17e9fff0ffbdb16c6af4c/mamba-0.2.tar.gz"
+            }
+        ],
+        "0.3": [
+            {
+                "comment_text": "",
+                "downloads": 2132,
+                "filename": "mamba-0.3.tar.gz",
+                "has_sig": false,
+                "md5_digest": "67920586000bdfe3132206b5d0373ce3",
+                "packagetype": "sdist",
+                "path": "af/b0/bc38d5566f7872d30035f84a690894737bae54c3170914627a438ddf31ff/mamba-0.3.tar.gz",
+                "python_version": "source",
+                "size": 5707,
+                "upload_time": "2013-05-09T17:39:11",
+                "url": "https://pypi.python.org/packages/af/b0/bc38d5566f7872d30035f84a690894737bae54c3170914627a438ddf31ff/mamba-0.3.tar.gz"
+            }
+        ],
+        "0.4": [
+            {
+                "comment_text": "",
+                "downloads": 2267,
+                "filename": "mamba-0.4.tar.gz",
+                "has_sig": false,
+                "md5_digest": "d40e2468fe2cd13258114438e23c2346",
+                "packagetype": "sdist",
+                "path": "b6/93/6d6aca0a632b8871ab0a016a649d6fb889331d728a7aa8b6ab5c4ee70df3/mamba-0.4.tar.gz",
+                "python_version": "source",
+                "size": 6203,
+                "upload_time": "2013-07-11T15:51:27",
+                "url": "https://pypi.python.org/packages/b6/93/6d6aca0a632b8871ab0a016a649d6fb889331d728a7aa8b6ab5c4ee70df3/mamba-0.4.tar.gz"
+            }
+        ],
+        "0.5": [
+            {
+                "comment_text": "",
+                "downloads": 2294,
+                "filename": "mamba-0.5.tar.gz",
+                "has_sig": false,
+                "md5_digest": "dd0b08e527fac7537a752dc11a474500",
+                "packagetype": "sdist",
+                "path": "42/9b/1ca65c9f650d1e94ee6ecad64f1d046f087c14505f156395106d55b458f2/mamba-0.5.tar.gz",
+                "python_version": "source",
+                "size": 11500,
+                "upload_time": "2013-09-01T10:37:55",
+                "url": "https://pypi.python.org/packages/42/9b/1ca65c9f650d1e94ee6ecad64f1d046f087c14505f156395106d55b458f2/mamba-0.5.tar.gz"
+            }
+        ],
+        "0.6": [
+            {
+                "comment_text": "",
+                "downloads": 2888,
+                "filename": "mamba-0.6.tar.gz",
+                "has_sig": false,
+                "md5_digest": "11e48ab5e47d2993cb7690fa88af7f60",
+                "packagetype": "sdist",
+                "path": "14/ec/9c2c89e98d4a7d9308730e47ba82a26e68375ba01e6a8eb64bd2859ce4ca/mamba-0.6.tar.gz",
+                "python_version": "source",
+                "size": 11980,
+                "upload_time": "2013-12-10T09:13:23",
+                "url": "https://pypi.python.org/packages/14/ec/9c2c89e98d4a7d9308730e47ba82a26e68375ba01e6a8eb64bd2859ce4ca/mamba-0.6.tar.gz"
+            }
+        ],
+        "0.8": [
+            {
+                "comment_text": "",
+                "downloads": 2254,
+                "filename": "mamba-0.8.tar.gz",
+                "has_sig": false,
+                "md5_digest": "1ddfb465a801537cd3c70f971c77cbf2",
+                "packagetype": "sdist",
+                "path": "93/18/a60e825dc705f8d46d28576660a3f4ed8ad587416cbf6995198c2a73c229/mamba-0.8.tar.gz",
+                "python_version": "source",
+                "size": 13192,
+                "upload_time": "2014-07-02T11:33:09",
+                "url": "https://pypi.python.org/packages/93/18/a60e825dc705f8d46d28576660a3f4ed8ad587416cbf6995198c2a73c229/mamba-0.8.tar.gz"
+            }
+        ],
+        "0.8.1": [
+            {
+                "comment_text": "",
+                "downloads": 2199,
+                "filename": "mamba-0.8.1.tar.gz",
+                "has_sig": false,
+                "md5_digest": "9058cffa222df2b0b9120af7b5cc18f8",
+                "packagetype": "sdist",
+                "path": "1f/cc/bee77af5f1771e540b35e689c9186e93a2b076150286aad705c3be4c8eb3/mamba-0.8.1.tar.gz",
+                "python_version": "source",
+                "size": 13333,
+                "upload_time": "2014-07-25T11:07:40",
+                "url": "https://pypi.python.org/packages/1f/cc/bee77af5f1771e540b35e689c9186e93a2b076150286aad705c3be4c8eb3/mamba-0.8.1.tar.gz"
+            }
+        ],
+        "0.8.2": [
+            {
+                "comment_text": "",
+                "downloads": 1637,
+                "filename": "mamba-0.8.2.tar.gz",
+                "has_sig": false,
+                "md5_digest": "dd9747d8c3c02bee6aaac07aa4641b15",
+                "packagetype": "sdist",
+                "path": "24/a2/3b8d2e0511d68f2547a623ac868e2ed909426173c355e3ec75bf90ea253a/mamba-0.8.2.tar.gz",
+                "python_version": "source",
+                "size": 13379,
+                "upload_time": "2014-10-20T09:41:24",
+                "url": "https://pypi.python.org/packages/24/a2/3b8d2e0511d68f2547a623ac868e2ed909426173c355e3ec75bf90ea253a/mamba-0.8.2.tar.gz"
+            }
+        ],
+        "0.8.3": [
+            {
+                "comment_text": "",
+                "downloads": 3714,
+                "filename": "mamba-0.8.3.tar.gz",
+                "has_sig": false,
+                "md5_digest": "909684af57fe5f3c0fe2d9a8f27a6e25",
+                "packagetype": "sdist",
+                "path": "04/17/c61b7b48718132f62e94a989aaff638c7164087dea0ec41175aa488a0b4c/mamba-0.8.3.tar.gz",
+                "python_version": "source",
+                "size": 14640,
+                "upload_time": "2014-12-18T09:01:01",
+                "url": "https://pypi.python.org/packages/04/17/c61b7b48718132f62e94a989aaff638c7164087dea0ec41175aa488a0b4c/mamba-0.8.3.tar.gz"
+            }
+        ],
+        "0.8.4": [
+            {
+                "comment_text": "",
+                "downloads": 3517,
+                "filename": "mamba-0.8.4.tar.gz",
+                "has_sig": false,
+                "md5_digest": "f67ecd34a28d30513f444e95bb544489",
+                "packagetype": "sdist",
+                "path": "8f/0e/5652c95155df72125a62add1f9d447bf90126067c51e20341033d3d907e6/mamba-0.8.4.tar.gz",
+                "python_version": "source",
+                "size": 14781,
+                "upload_time": "2015-02-17T10:46:40",
+                "url": "https://pypi.python.org/packages/8f/0e/5652c95155df72125a62add1f9d447bf90126067c51e20341033d3d907e6/mamba-0.8.4.tar.gz"
+            }
+        ],
+        "0.8.5": [
+            {
+                "comment_text": "",
+                "downloads": 4638,
+                "filename": "mamba-0.8.5.tar.gz",
+                "has_sig": false,
+                "md5_digest": "02de10c83ac28940de36da8671fd35f0",
+                "packagetype": "sdist",
+                "path": "8d/04/ed9faaa97860bb5b3132c900c8cf4ab3ed627ff9d206032cbfa844ae59ac/mamba-0.8.5.tar.gz",
+                "python_version": "source",
+                "size": 15265,
+                "upload_time": "2015-08-24T15:14:00",
+                "url": "https://pypi.python.org/packages/8d/04/ed9faaa97860bb5b3132c900c8cf4ab3ed627ff9d206032cbfa844ae59ac/mamba-0.8.5.tar.gz"
+            }
+        ],
+        "0.8.6": [
+            {
+                "comment_text": "",
+                "downloads": 4342,
+                "filename": "mamba-0.8.6.tar.gz",
+                "has_sig": false,
+                "md5_digest": "7f0044d502ce029ac2b0bb5461b4c4d5",
+                "packagetype": "sdist",
+                "path": "45/64/2f81c12e62d6b259a5b305fa2fc5a84d2682f350f0269c55e5e22741f97d/mamba-0.8.6.tar.gz",
+                "python_version": "source",
+                "size": 10430,
+                "upload_time": "2015-12-31T08:39:40",
+                "url": "https://pypi.python.org/packages/45/64/2f81c12e62d6b259a5b305fa2fc5a84d2682f350f0269c55e5e22741f97d/mamba-0.8.6.tar.gz"
+            }
+        ],
+        "0.9.1": [
+            {
+                "comment_text": "",
+                "downloads": 0,
+                "filename": "mamba-0.9.1.tar.gz",
+                "has_sig": false,
+                "md5_digest": "3068663b73a4792a44ea072dd807f45d",
+                "packagetype": "sdist",
+                "path": "b1/e1/52fd1b5b424d27de0a7c63149a68f21332dd1c12bb6cf3183a5f3c3da4c9/mamba-0.9.1.tar.gz",
+                "python_version": "source",
+                "size": 11487,
+                "upload_time": "2017-12-11T15:25:39",
+                "url": "https://pypi.python.org/packages/b1/e1/52fd1b5b424d27de0a7c63149a68f21332dd1c12bb6cf3183a5f3c3da4c9/mamba-0.9.1.tar.gz"
+            }
+        ],
+        "0.9.2": [
+            {
+                "comment_text": "",
+                "downloads": 0,
+                "filename": "mamba-0.9.2.tar.gz",
+                "has_sig": false,
+                "md5_digest": "7fdc87eaa3b83d38a4a015572302bd8f",
+                "packagetype": "sdist",
+                "path": "41/36/ae2ca87c26b0d96698229a88f5f7036983c7a4b737476853c4983dba2212/mamba-0.9.2.tar.gz",
+                "python_version": "source",
+                "size": 11690,
+                "upload_time": "2017-12-14T11:19:33",
+                "url": "https://pypi.python.org/packages/41/36/ae2ca87c26b0d96698229a88f5f7036983c7a4b737476853c4983dba2212/mamba-0.9.2.tar.gz"
+            }
+        ]
+    },
+    "urls": [
+        {
+            "comment_text": "",
+            "downloads": 0,
+            "filename": "mamba-0.9.2.tar.gz",
+            "has_sig": false,
+            "md5_digest": "7fdc87eaa3b83d38a4a015572302bd8f",
+            "packagetype": "sdist",
+            "path": "41/36/ae2ca87c26b0d96698229a88f5f7036983c7a4b737476853c4983dba2212/mamba-0.9.2.tar.gz",
+            "python_version": "source",
+            "size": 11690,
+            "upload_time": "2017-12-14T11:19:33",
+            "url": "https://pypi.python.org/packages/41/36/ae2ca87c26b0d96698229a88f5f7036983c7a4b737476853c4983dba2212/mamba-0.9.2.tar.gz"
+        }
+    ]
+}
