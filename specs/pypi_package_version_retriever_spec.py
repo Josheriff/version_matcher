@@ -1,71 +1,64 @@
 # -*- coding: utf-8 -*-
 
-from doublex import Spy, Stub
+from doublex import Spy, Stub, when
 from doublex_expects import have_been_called, have_been_called_with
-from expects import expect
+from expects import expect, equal
+
+INFO_IN_JSON = { 'info': {'version': 42 } }
 
 #--------------------------
 class PypiPackageVersionRetriever(object):
 
-    def __init__(self, http_client):
-        self._http_client = http_client
+    def __init__(self, pypi_client):
+        self._pypi_client = pypi_client
 
     def retrieve_version(self, package_name):
-        url = 'https://pypi.python.org/pypi/{}/json'.format(package_name)
-        self._http_client.get(url)
+        package_info = self._pypi_client.get(package_name)
+        package_version = package_info['info']['version']
+        return package_version
 
-##### parte de propuesta ######
-class Http_client(object):
-    pass
-################
-#--------------------------
+class PypiClient(object):
+
+    def __init__(self, http_client):
+        self.http_client = http_client
+
+    def get(self,package_name):
+        url = 'https://pypi.python.org/pypi/{}/json'.format(package_name)
+        return self.http_client.get(url)
+
+#######
+#
+# 1º Sacar codigo producción a otro archivo y pasar tests
+# 2º Sacar codigo del otro test también a otro archivo
+# 3º Implementar, lectura de requirements-dev.txt
+# 4º Recordar que a PypiClient hay que pasarle el modulo request como colaborador
+# 5º Testear todo junto
+# 6º Mostrar datos si eso...
+#######
 
 with describe('PipyPackageVersionRetriever'):
+    with before.each:
 
-    with context('when retrieve package verion information'):
-        with it('calls an http_client get function'):
-            a_package_name = 'a_package_name'
-            http_client = Spy()
-            sut = PypiPackageVersionRetriever(http_client)
+        self.a_package_name = 'a name'
+        self.pypi_client = Spy(PypiClient)
+        when(self.pypi_client).get(self.a_package_name).returns(INFO_IN_JSON)
 
-            sut.retrieve_version(a_package_name)
 
-            expect(http_client.get).to(have_been_called)
+    with context('when retrieve package version information'):
 
-        with it('calls an http_client get function with a valid url'):
-            a_package_name = 'a_package_name'
-            http_client = Spy()
-            sut = PypiPackageVersionRetriever(http_client)
+        with it('calls an pypi_client get method with package name as parameter'):
+            sut = PypiPackageVersionRetriever(self.pypi_client)
 
-            sut.retrieve_version(a_package_name)
+            sut.retrieve_version(self.a_package_name)
 
-            expected_url = 'https://pypi.python.org/pypi/{}/json'.format(a_package_name)
-            expect(http_client.get).to(have_been_called_with(expected_url))
+            expect(self.pypi_client.get).to(have_been_called_with(self.a_package_name))
 
-    with context('when we make an http call FOOOOO'):
-        with it('retrieve a json with the info BARRRRR'):
-            a_package_name = 'a_package_name'
-            http_client = Spy()
-            sut = PypiPackageVersionRetriever(http_client)
+        with it('retrieve a the last version of the package'):
 
-            result = sut.retrieve_version(a_package_name)
+            sut = PypiPackageVersionRetriever(self.pypi_client)
 
+            result = sut.retrieve_version(self.a_package_name)
             expected_result = 42
-            expect(result).to(equal(expected_url))
-
-####################  PROPUESTA  ##################
-
-    with context('when the http query is done'):
-        with it('a package version is retrieved'):
-            a_package_name = 'a name'
-            a_version = '42'
-            url = 'https://pypi.python.org/pypi/{}/json'.format(a_package_name)
-
-            http_client = Stub(Http_client)
-            when(http_client.get(url)).returns(a_version)
-            sut = PypiPackageVersionRetriever(http_client)
-
-            result = sut.retrieve_version(a_package_name)
-
-            expected_result = a_version
             expect(result).to(equal(expected_result))
+
+
