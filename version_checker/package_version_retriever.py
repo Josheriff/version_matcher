@@ -6,7 +6,8 @@ class PypiPackageVersionRetriever(object):
         self._pypi_client = pypi_client
 
     def retrieve_version(self, package_name):
-        package_info = self._pypi_client.get(package_name)
+        response = self._pypi_client.get(package_name)
+        package_info = response.json()
         package_version = package_info['info']['version']
         return package_version
 
