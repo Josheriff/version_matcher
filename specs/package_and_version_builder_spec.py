@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
 
 from expects import expect, equal
+from version_checker.package_version_checker import package_and_version_builder
+#--------------------------
+#import sys
+#fname= sys.argv[0]
 
-#--------------------------
-def package_and_version_builder(input_line):
-    if "==" not in input_line:
-        return None
-    package, version = input_line.split('==')
-    return {package: version}
-#--------------------------
+#with open(fname) as f:
+#    content = f.readlines()
+#content = [x.strip() for x in content]
+#---------------------------
 
 with describe('PackageAndVersionBuilder'):
     with context('when line contains package name and version, splitted by ==  (HappyPath)'):
