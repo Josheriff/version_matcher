@@ -9,7 +9,10 @@ import sys
 fname= sys.argv[1]
 
 with open(fname) as f:
-    content = f.readlines()
-content = [x.strip() for x in content]
+    lines = f.readlines()
+lines = [x.strip() for x in lines]
 
-print(content)
+for line in lines:
+    local_package = package_and_version_builder(line)
+    print(local_package['name'])
+

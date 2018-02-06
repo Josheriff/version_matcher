@@ -20,9 +20,9 @@ with describe('PackageAndVersionBuilder'):
             result =  package_and_version_builder(input_line)
             result_2 = package_and_version_builder(another_input_line)
 
-            expected_result = {'mamba': '0.9.2'}
+            expected_result = {'name': 'mamba', 'version': '0.9.2'}
             expect(expected_result).to(equal(result))
-            expected_result = {'expect': '42'}
+            expected_result = {'name': 'expect', 'version': '42'}
             expect(expected_result).to(equal(result_2))
 
 
