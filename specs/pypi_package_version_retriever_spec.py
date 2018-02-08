@@ -3,22 +3,11 @@
 from doublex import Spy, Stub, when
 from doublex_expects import have_been_called, have_been_called_with
 from expects import expect, equal
+import requests
 
 from version_checker.package_version_retriever import PypiPackageVersionRetriever, PypiClient
 
 INFO_IN_JSON = { 'info': {'version': 42 } }
-
-#--------------------------
-
-#######
-#
-# 1º Sacar codigo producción a otro archivo y pasar tests
-# 2º Sacar codigo del otro test también a otro archivo
-# 3º Implementar, lectura de requirements-dev.txt
-# 4º Recordar que a PypiClient hay que pasarle el modulo request como colaborador
-# 5º Testear todo junto
-# 6º Mostrar datos si eso...
-#######
 
 with describe('PipyPackageVersionRetriever'):
     with before.each:
