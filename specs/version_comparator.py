@@ -13,15 +13,6 @@ class Filereader(object):
 
         return lines
 
-class VersionComparator(object):
-
-    def __init__(self, line_normalizer, version_retriever):
-        self.line_normalizer = line_normalizer
-        self.version_retriever = version_retriever
-
-    def apply(self, line):
-
-
 class CompareFullFile(object):
 
     def __init__(self, lines, line_normalizer, version_retriever):
@@ -40,8 +31,8 @@ class CompareFullFile(object):
             return True
         return False
 
-
 #######
+
 INPUT_LINE = 'mamba==0.9.2'
 USING_UPTODATE = '0.9.2'
 USING_OUTDATED = '0.9.3'
@@ -51,10 +42,11 @@ PYPIJSON =
 with describe('comparasion between server and local'):
     with it('both using the same version'):
 
+        file = Stub(FileReader)
         http_client = Stub()
         pypiclient = Stub(PypiClient(http_client))
         version_retriever = Stub(PypiPackageVersionRetriever(pypiclient))
-        when(version_retriever).apply(ANY_PARAMETER).returns(USING_UPTODATE)
+        when(version_retriever).apply().returns(USING_UPTODATE)
         line_normalizer = RequirementLineNormalizer()
 
         comparator = VersionComparator(line_normalizer, version_retriever, package_name)
