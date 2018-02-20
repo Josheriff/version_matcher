@@ -46,6 +46,8 @@ with describe('comparasion between server and local'):
         http_client = Stub()
         pypiclient = Stub(PypiClient(http_client))
         version_retriever = Stub(PypiPackageVersionRetriever(pypiclient))
+
+        when(file).open_and_read(ANY_ARG).returns(LINE_LIST)
         when(version_retriever).apply().returns(USING_UPTODATE)
         line_normalizer = RequirementLineNormalizer()
 
